@@ -10,6 +10,14 @@ $(document).keypress(function (e) {
     }
 });
 
+$(".click").on('click',function (e) {
+    if ($("h2").text() == "Click the button to Start" || $("h2").text() == "Game Over, Press the button to Restart") {
+        $("body").css("background-color", "#011F3F");
+        $("h2").text("Let's start level 1");
+        startGame(1);
+    }
+});
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -51,12 +59,14 @@ function gameChecker(sequence, level) {
         if (userArr[userArr.length - 1] !== sequence[userArr.length - 1]) {
             playSound("wrong");
             $("h1").text("Game Over, Press Any Key to Restart");
+            $("h2").text("Game Over, Press the button to Restart");
             $("body").css("background-color", "red");
             return;
         }
 
         if (userArr.length === sequence.length) {
             $("h1").text("Let's start level " + (level + 1));
+            $("h2").text("Let's start level " + (level + 1));
             setTimeout(function () {
                 startGame(level + 1);
             }, 1000);
@@ -83,6 +93,7 @@ function playSound(randomVar){
         case "wrong":
             audio = new Audio("./sounds/wrong.mp3");
             $("h1").text("Game Over, Press Any Key to Restart");
+            $("h2").text("Game Over, Press the button to Restart");
             $("body").css("background-color","red");
             break;    
         default:

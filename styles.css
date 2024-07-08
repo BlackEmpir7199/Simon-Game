@@ -3,7 +3,7 @@ body {
   background-color: #011F3F;
 }
 
-#level-title {
+.level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
@@ -14,6 +14,12 @@ body {
   display: block;
   width: 50%;
   margin: auto;
+
+}
+
+#level-titlemobile{
+  visibility: hidden;
+  font-size: 0px;
 
 }
 
@@ -50,4 +56,40 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+.click{
+  visibility: hidden;
+}
+
+@media (max-width:1200px){
+.click{
+  height: 50px;
+  visibility: visible;
+  width: 100px;
+  font-size: large;
+  font-family: monospace;
+  font-weight: 800;
+  border-radius: 10px;
+  background-color:burlywood;
+  border:3px solid black;
+  transition: background-color 1s,color 1.2s,border 0.8s;
+
+}
+
+#level-titlemobile{
+  visibility: visible;
+  font-size: 3rem;
+}
+.level-title{
+  visibility: hidden;
+  font-size: 0rem;
+}
+
+
+.click:hover{
+  background-color: black;
+  color: burlywood;
+  border: 3px solid burlywood;
+}
 }
